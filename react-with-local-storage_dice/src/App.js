@@ -1,13 +1,14 @@
 import { D6Button } from "./components/D6Button";
 import History from "./components/History";
 import "./styles.css";
-import { getD6Roll } from "./utils";
+import { getD100Roll, getD6Roll, getD8Roll } from "./utils";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App() {
   const [rolls, setRolls] = useLocalStorageState("rolls", { defaultValue: [] });
   const handleRoll = () => {
-    console.log("roll the dice");
+    // console.log("roll the dice");
+    // console.log(getD100Roll());
     setRolls([{ value: getD6Roll(), time: Date.now() }, ...rolls]);
   };
   const currentRollValue = rolls[0]?.value;
